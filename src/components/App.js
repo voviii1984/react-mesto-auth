@@ -178,6 +178,7 @@ function App() {
         history.push("/");
       })
       .catch((err) => {
+        setIsInfoTooltip(true);
         console.log(`Ошибка: ${err}`);
       })
   };
@@ -192,6 +193,7 @@ function App() {
         history.push('/');
       })
       .catch((err) => {
+        setIsInfoTooltip(true);
         console.log(`Ошибка: ${err}`);
       })
   };
