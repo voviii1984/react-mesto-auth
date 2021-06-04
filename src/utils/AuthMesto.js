@@ -37,3 +37,5 @@ export const getContent = (token) => {
   })
     .then(res => checkResponse(res));
 };
+
+//test
