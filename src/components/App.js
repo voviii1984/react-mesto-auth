@@ -13,7 +13,7 @@ import { Route, Switch, useHistory, Redirect } from 'react-router-dom';
 import Register from './Register';
 import Login from './Login'
 import ProtectedRoute from './ProtectedRoute';
-import * as AuthMesto from '../utils/AuthMesto';
+import * as authMesto from '../utils/authMesto';
 import InfoTooltip from './InfoTooltip';
 
 function App() {
@@ -146,7 +146,7 @@ function App() {
       return;
     }
 
-    AuthMesto
+    authMesto
       .getContent(jwt)
       .then(({ data: { email } }) => {
         setUserInfo({ email });
@@ -168,7 +168,7 @@ function App() {
   }, [isLoggedIn]);
 
   const onLogin = ({ email, password }) => {
-    return AuthMesto
+    return authMesto
       .authorize({ email, password })
       .then(({ token }) => {
         setUserInfo({ email });
@@ -183,7 +183,7 @@ function App() {
   };
 
   const onRegister = (data) => {
-    return AuthMesto
+    return authMesto
       .register(data)
       .then(() => {
         setInfoTooltipDone(true);
